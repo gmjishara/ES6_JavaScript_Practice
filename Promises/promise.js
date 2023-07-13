@@ -16,3 +16,7 @@
 // }
 
 // getData(971231);
+
+const permission =()=>{
+    console.log("hello...")
+}
