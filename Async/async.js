@@ -1,5 +1,3 @@
-// convert the callback hell into promise
-
 function getData(key) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -37,12 +35,15 @@ function sendData(data) {
   });
 }
 
-function gettingData(key) {
-  return getData(key)
-    .then(processedData)
-    .then(sendData)
-    .then((result) => console.log(result))
-    .catch((error) => console.log(error));
+async function createData(key) {
+  try {
+    const data = await getData(key);
+    const proccessData = await processedData(data);
+    const sentData = await sendData(proccessData);
+    console.log(sentData);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-gettingData(971231);
+createData(971231);
