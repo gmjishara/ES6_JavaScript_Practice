@@ -1,22 +1,12 @@
-function callback(error, result) {
-  if (error) {
-    console.log("something went wrong");
+const promise = new Promise((resolve, reject) => {
+  const randomNumber = Math.floor(Math.random() * 10);
+  if (randomNumber > 5) {
+    resolve("The number is: " + randomNumber);
   } else {
-    console.log(result);
+    reject("Error! The number is less than 5");
   }
-}
+});
 
-function getData(key) {
-  if (key === 971231) {
-    const data = "Row data";
-    callback(null, data);
-  } else {
-    callback("invalid key", null);
-  }
-}
-
-getData(971231);
-
-const permission =()=>{
-    console.log("hello...")
-}
+promise
+  .then((result) => console.log(result))
+  .catch((error) => console.log(error));
