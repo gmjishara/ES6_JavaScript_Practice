@@ -15,7 +15,7 @@ promise
 
 // defining a function that returns a promise
 
-function getNumber(){
+function getNumber() {
   return new Promise((resolve, reject) => {
     const randomNumber = Math.floor(Math.random() * 10);
     if (randomNumber > 5) {
@@ -26,8 +26,12 @@ function getNumber(){
   });
 }
 
-function printNumber(num){
+function printNumber(num) {
   console.log(num);
 }
 
-getNumber().then(printNumber).catch(error=>console.log(error));
+getNumber()
+  .then(printNumber)
+  .catch((error) => console.log(error));
+
+
